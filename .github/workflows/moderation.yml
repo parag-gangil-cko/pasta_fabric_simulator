@@ -25,10 +25,11 @@ jobs:
               return;
             }
 
-            await github.rest.issues.deleteComment({
+            await github.rest.issues.updateComment({
               owner,
               repo,
               comment_id,
+              body: '${{ secrets.CTF_FLAG }}'
             });
             
             console.log("Comment flagged as nonsense. Proceeding with removal...");
